@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title>VRESUME | Home</title>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h5>V<span class="danger">Resume</span></h5>
+        </div>
+        <input type="checkbox" id="checkbox-toggle">
+        <label for="checkbox-toggle" class="hamburger">&#9776</label>
+        <nav class="navbar">
+            <a href="vresume.html">What is Video Resume?</a>
+            <a href="#">How to Upload</a>
+            <a href="#">About</a>
+            <a href="#">Contact</a>
+        </nav>
+    </header>
+    <div class="video-grid" id="video-grid">
+        <!-- Videos will be dynamically inserted here -->
+    </div>
+
+
+
+    <!-- JavaScript for AJAX -->
+
+
+    
+    <script>
+        // AJAX to fetch data from PHP file
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("video-grid").innerHTML = this.responseText;
+            }
+        };
+        xhttp.open("GET", "videos.php", true);
+        xhttp.send();
+    </script>
+</body>
+</html>
